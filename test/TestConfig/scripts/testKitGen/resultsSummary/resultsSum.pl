@@ -60,63 +60,63 @@ sub resultReporter {
 	my @passed;
 	my @failed;
 	my @capSkipped;
-	my $tapString = '';
 	my $fhIn;
 
 	print "\n\n";
 
+	open(my $fhOut, '>', $tapFile) or die "Cannot open file $tapFile!";
+
 	if (open($fhIn, '<', $resultFile)) {
 		while ( my $result = <$fhIn> ) {
 			if ($result =~ /===============================================\n/) {
-				my $output = "    output:\n      |\n";
-				$output .= '        ' . $result;
+				my $seekPoint = tell($fhIn);
 				my $testName = '';
+				my $testStatus = '';
 				my $startTime = 0;
 				my $endTime = 0;
 				while ( $result = <$fhIn> ) {
-					# remove extra carriage return
-					$result =~ s/\r//g;
-					$output .= '        ' . $result;
 					if ($result =~ /Running test (.*) \.\.\.\n/) {
 						$testName = $1;
 					} elsif ($result =~ /^\Q$testName\E Start Time: .* Epoch Time \(ms\): (.*)\n/) {
 						$startTime = $1;
 					} elsif ($result =~ /^\Q$testName\E Finish Time: .* Epoch Time \(ms\): (.*)\n/) {
 						$endTime = $1;
-						$tapString .= "    duration_ms: " . ($endTime - $startTime) . "\n  ...\n";
+						if (($diagnostic eq 'all') || (($testStatus eq 'FAILED') && ($diagnostic eq 'failure'))) {
+							print $fhOut  "    output:\n      |\n        ===============================================\n";
+							seek($fhIn, $seekPoint, 0);
+							while  (my $testOutput = <$fhIn> ) {
+								# remove extra carriage return
+								$testOutput =~ s/\r//g;
+								print $fhOut '        ' . $testOutput;
+								if ($testOutput =~ /^\Q$testName\E Finish Time: .* Epoch Time \(ms\): (.*)\n/) {
+									last;
+								}
+							}
+						}
+						print $fhOut "    duration_ms: " . ($endTime - $startTime) . "\n  ...\n";
 						last;
 					} elsif ($result eq ($testName . "_PASSED\n")) {
-						$result =~ s/_PASSED\n$//;
-						push (@passed, $result);
+						$testStatus = 'PASSED';
+						push (@passed, $testName);
 						$numOfPassed++;
 						$numOfTotal++;
-						$tapString .= "ok " . $numOfTotal . " - " . $result . "\n";
-						$tapString .= "  ---\n";
-						if ($diagnostic eq 'all') {
-							$tapString .= $output;
-						}
+						print $fhOut "ok " . $numOfTotal . " - " . $testName . "\n  ---\n";
 					} elsif ($result eq ($testName . "_FAILED\n")) {
-						$result =~ s/_FAILED\n$//;
-						push (@failed, $result);
+						$testStatus = 'FAILED';
+						push (@failed, $testName);
 						$numOfFailed++;
 						$numOfTotal++;
-						$tapString .= "not ok " . $numOfTotal . " - " . $result . "\n";
-						$tapString .= "  ---\n";
-						if (($diagnostic eq 'failure') || ($diagnostic eq 'all')) {
-							$tapString .= $output;
-						}
+						print $fhOut "not ok " . $numOfTotal . " - " . $testName . "\n  ---\n";
 					} elsif ($result =~ /(capabilities \(.*?\))\s*=>\s*${testName}_SKIPPED\n/) {
 						my $capabilities = $1;
 						push (@capSkipped, "$testName - $capabilities");
 						$numOfSkipped++;
 						$numOfTotal++;
-						$tapString .= "ok " . $numOfTotal . " - " . $testName . " # skip\n";
-						$tapString .= "  ---\n";
+						print $fhOut "ok " . $numOfTotal . " - " . $testName . " # skip\n  ---\n";
 					} elsif ($result =~ /(jvm options|platform requirements).*=>\s*${testName}_SKIPPED\n/) {
 						$numOfSkipped++;
 						$numOfTotal++;
-						$tapString .= "ok " . $numOfTotal . " - " . $testName . " # skip\n";
-						$tapString .= "  ---\n";
+						print $fhOut "ok " . $numOfTotal . " - " . $testName . " # skip\n  ---\n";
 					}
 				}
 			}
@@ -130,9 +130,7 @@ sub resultReporter {
 		make_path($dir);
 	}
 	#generate tap output
-	open(my $fhOut, '>', $tapFile) or die "Cannot open file $tapFile!";
-	print $fhOut "1.." . $numOfTotal . "\n";
-	print $fhOut $tapString;
+	print $fhOut "1.." . $numOfTotal;
 	close $fhOut;
 
 	#generate console output
