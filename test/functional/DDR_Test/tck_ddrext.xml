@@ -31,6 +31,7 @@
 	<property name="TEST_RESROOT" value="${TEST_RESROOT}" />
 	<property name="REPORTDIR" value="${REPORTDIR}" />
 	<property name="JDK_VERSION" value="${JDK_VERSION}" />
+	<property name="EXTRADUMPOPT" value="${EXTRADUMPOPT}" />
 	<if>
 		<equals arg1="${JDK_VERSION}" arg2="8"/>
 		<then>
@@ -102,6 +103,7 @@
 	<target name="TCK.generate.dump">
 		<echo>Generate dump file</echo>
 		<exec executable="${JAVA_COMMAND}" failonerror="true">
+			<arg line="${EXTRADUMPOPT}" />
 			<arg line="${DUMP_OPTION}" />
 		</exec>
 		<if>
