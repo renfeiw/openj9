@@ -63,16 +63,28 @@ sub runmkgen {
 	}
 
 	my $includeModesService = 1;
-	eval qq{require "modesService.pl"; 1;} or $includeModesService = 0;
+	#eval qq{require "modesService.pl"; 1;} or $includeModesService = 0;
 	my $serviceResponse;
+
+	print "\n********includeModesService: $includeModesService\n";
+
 	if ($includeModesService) {
-		$serviceResponse = eval {
-			$modes_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getAllModes', "mode");
-			$sp_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getSpecPlatMapping', 'spec');
-		};
+		require "modesService.pl";
+		print "\n********inside if includeModesService: $includeModesService\n";
+
+		$modes_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getAllModes', "mode");
+		$sp_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getSpecPlatMapping', 'spec');
+		#$serviceResponse = eval {
+		#	$modes_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getAllModes', "mode");
+		#	$sp_hs = getDataFromService('http://testmgmt.stage1.mybluemix.net/modesDictionaryService/getSpecPlatMapping', 'spec');
+		#};
 	}
 
-	if (!(($serviceResponse) && (%{$modes_hs}) && (%{$sp_hs}))) {
+	#print "\n********modes_hs: $modes_hs\n";
+	#print "\n********sp_hs: $sp_hs\n";
+
+	if(!((%{$modes_hs}) && (%{$sp_hs}))){
+	#if ( !$modes_hs && !$sp_hs && !((%{$modes_hs}) && (%{$sp_hs}))) {
 		print "Getting modes data from modes.xml and ottawa.csv...\n";
 		require "parseFiles.pl";
 		my $data = getFileData($modesxml, $ottawacsv);
@@ -81,6 +93,10 @@ sub runmkgen {
 	} else {
 		print "Getting modes data from modes services...\n";
 	}
+
+
+	print "runmkgen done...\n";
+
 
 	$targetGroup{"all"} = 0;
 	foreach my $eachLevel (sort @{$allLevels}) {
