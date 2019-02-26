@@ -22,7 +22,7 @@
 
 use strict;
 use warnings;
-use JSON;
+use JSON::Tiny;
 
 sub getDataFromService {
 	my %vars;
@@ -32,9 +32,16 @@ sub getDataFromService {
 	if ($? != 0) {
 		print "Failed to execute curl with error code: $?.\n";
 	}
-	my $data = from_json($jsonData);
-	foreach my $element (@{$data}) {
-		$vars{ $element->{$key} } = $element;
+	#print "\ncurl: $curl\n";
+	#print "\njsonData: $jsonData\n";
+
+	if (index($jsonData, "404 Not Found") != -1 || index($jsonData, "Cannot GET") != -1 ) {
+		print "Could not parse json\n";
+	} else {
+		my $data = JSON::Tiny::from_json($jsonData);
+		foreach my $element (@{$data}) {
+			$vars{ $element->{$key} } = $element;
+		}
 	}
 	return \%vars;
 }
