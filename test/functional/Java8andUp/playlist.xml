@@ -789,6 +789,10 @@
 
 	<test>
 		<testCaseName>gcNotificationTest_GenCon</testCaseName>
+		<disabled>
+			<comment>abcdefg</comment>
+			<vendor>adoptopenjdk</vendor>
+		</disabled>
 		<variations>
 			<variation>-Xgcpolicy:gencon -Xmx512m</variation>
 			<variation>-Xgcpolicy:gencon -XX:+HeapManagementMXBeanCompatibility -Xmx512m</variation>
