@@ -152,7 +152,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(J9VM_PATH)$(SQ) $(JVM_OPTIONS) ; \
 	$(TEST_STATUS)</command>
 		<!-- temporarily disable this test on windows; https://github.com/eclipse/openj9/issues/3212 -->
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -176,7 +176,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(ADD_JVM_LIB_DIR_TO_LIBPATH) \
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)gc_rwlocktest$(SQ) -verbose; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -199,7 +199,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 		<command>$(ADD_JVM_LIB_DIR_TO_LIBPATH) \
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)gc_rwlocktest$(SQ) -verbose; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -225,7 +225,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)$(SQ) $(SQ)-Xbootclasspath/a:$(Q)dummy1$(P)dummy2$(P)dummy3$(Q)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.linux</platformRequirements>
+		<platform>.*linux.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -256,7 +256,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)$(SQ) $(SQ)-Xbootclasspath/a:$(Q)dummy1$(P)dummy2$(P)dummy3$(Q)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.zos</platformRequirements>
+		<platform>.*zos.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -287,7 +287,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)$(SQ) $(SQ)-Xbootclasspath/a:$(Q)dummy1$(P)dummy2$(P)dummy3$(Q)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.aix</platformRequirements>
+		<platform>.*aix.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -317,7 +317,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)$(SQ) $(SQ)-Xbootclasspath/a:$(Q)dummy1$(P)dummy2$(P)dummy3$(Q)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -348,7 +348,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)jre$(D)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.linux</platformRequirements>
+		<platform>.*linux.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -378,7 +378,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)jre$(D)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.zos</platformRequirements>
+		<platform>.*zos.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -408,7 +408,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)jre$(D)$(SQ) ; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements>os.aix</platformRequirements>
+		<platform>.*aix.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -437,7 +437,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 			$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)shrtest$(SQ) $(JVM_OPTIONS) -Djava.home=$(SQ)$(TEST_JDK_HOME)$(D)jre$(D)$(SQ) ; \
 			$(TEST_STATUS)
 		</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -579,7 +579,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 		$(JAVA_SHARED_LIBRARIES_DIR)/invtest -Djava.home=$(TEST_JAVA)/ -Dibm.java9.forceCommonCleanerShutdown=true; \
 		$(TEST_STATUS); \
 		rm -rf $(REPORTDIR_NQ)/testJava</command>
-		<platformRequirements>os.zos</platformRequirements>
+		<platform>.*zos.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

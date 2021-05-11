@@ -41,7 +41,7 @@
 	-Xint -jar $(CMDLINETESTER_JAR) \
 	-config  $(Q)$(TEST_RESROOT)$(D)gptests.xml$(Q) -verbose -explainExcludes -xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -xlist $(Q)$(TEST_RESROOT)$(D)cmdlineopttest_exclude.xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}	</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -77,7 +77,7 @@
 	-Xint -jar $(CMDLINETESTER_JAR) \
 	-config  $(Q)$(TEST_RESROOT)$(D)gptests.xml$(Q) -verbose -explainExcludes -xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -xlist $(Q)$(TEST_RESROOT)$(D)cmdlineopttest_exclude.xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}	</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

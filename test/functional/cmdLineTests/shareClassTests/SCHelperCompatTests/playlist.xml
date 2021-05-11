@@ -39,7 +39,7 @@
 	-nonZeroExitWhenError \
 	-outputLimit 300; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -68,7 +68,7 @@
 	-nonZeroExitWhenError \
 	-outputLimit 300; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

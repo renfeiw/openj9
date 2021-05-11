@@ -32,7 +32,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)loadLibraryTest.xml$(Q) \
 	-nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

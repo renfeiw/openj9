@@ -59,7 +59,7 @@
 		<types>
 			<type>native</type>
 		</types>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<impls>
 			<impl>openj9</impl>
 			<impl>ibm</impl>
@@ -100,7 +100,7 @@
 		<types>
 			<type>native</type>
 		</types>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<impls>
 			<impl>openj9</impl>
 			<impl>ibm</impl>

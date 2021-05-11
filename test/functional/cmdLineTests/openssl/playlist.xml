@@ -54,7 +54,7 @@
 		-DEXE=$(SQ)$(JAVA_COMMAND) $(JVM_OPTIONS)$(SQ) -jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)openssl.xml$(Q) \
 		-verbose -explainExcludes -nonZeroExitWhenError; \
 		$(TEST_STATUS)</command>
-		<platformRequirements>^os.zos</platformRequirements>
+		<platform>^((?!zos).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

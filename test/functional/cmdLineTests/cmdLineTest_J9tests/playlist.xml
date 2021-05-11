@@ -129,7 +129,7 @@
 	-explainExcludes -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
 		<!-- temporarily disable this test on windows; similar failures as https://github.com/eclipse/openj9/issues/3212, https://github.com/eclipse/openj9/issues/3560 -->
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>extended</level>
 		</levels>

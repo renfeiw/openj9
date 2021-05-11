@@ -47,7 +47,7 @@
 	-explainExcludes \
 	-xids all,$(PLATFORM),$(JCL_VERSION) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -88,7 +88,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_hcr.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -131,7 +131,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_hcr.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -175,7 +175,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_hcr.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -218,7 +218,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_extended.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -259,7 +259,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_extended.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^arch.390</platformRequirements>
+		<platform>^((?!390).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -298,7 +298,7 @@
 	-explainExcludes \
 	-xids all,$(PLATFORM),$(JCL_VERSION) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>arch.390</platformRequirements>
+		<platform>.*390.*</platform>
 		<levels>
 			<level>extended</level>
 		</levels>
@@ -374,7 +374,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_hcr.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>arch.390</platformRequirements>
+		<platform>.*390.*</platform>
 		<levels>
 			<level>extended</level>
 		</levels>
@@ -417,7 +417,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_hcr.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>arch.390</platformRequirements>
+		<platform>.*390.*</platform>
 		<levels>
 			<level>extended</level>
 		</levels>
@@ -535,7 +535,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)jvmtitests_extended.xml$(Q) \
 	-explainExcludes -xids all,$(PLATFORM) -xlist $(Q)$(TEST_RESROOT)$(D)jvmtitests_excludes_$(JDK_VERSION).xml$(Q) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>arch.390</platformRequirements>
+		<platform>.*390.*</platform>
 		<levels>
 			<level>extended</level>
 		</levels>

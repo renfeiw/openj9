@@ -32,7 +32,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 		-jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)syspropstest.xml$(Q) \
 		-verbose -nonZeroExitWhenError; \
 		$(TEST_STATUS)</command>
-		<platformRequirements>os.aix</platformRequirements>
+		<platform>.*aix.*$</platform>
 		<levels>
 			<level>extended</level>
 		</levels>
@@ -55,7 +55,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 		-jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)syspropstest.xml$(Q) \
 		-verbose -nonZeroExitWhenError; \
 		$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>extended</level>
 		</levels>

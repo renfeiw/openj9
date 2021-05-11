@@ -39,7 +39,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)softmx.xml$(Q) -explainExcludes -nonZeroExitWhenError; \
 	$(TEST_STATUS)
 	</command>
-		<platformRequirements></platformRequirements>
+		
 		<levels>
 			<level>extended</level>
 		</levels>

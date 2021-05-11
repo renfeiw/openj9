@@ -92,7 +92,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-DEXE=$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)pltest -exclude:j9process $(JVM_OPTIONS)$(SQ) -jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)pltest.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.aix</platformRequirements>
+		<platform>.*aix.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -152,7 +152,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-DEXE=$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)pltest -include:tty_extended$(SQ) -jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)j9tty_extended.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -184,7 +184,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-DEXE=$(SQ)$(JAVA_SHARED_LIBRARIES_DIR)$(D)pltest -include:j9numcpus $(JVM_OPTIONS)$(SQ) -jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)pltest.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -218,7 +218,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-config $(Q)$(TEST_RESROOT)$(D)pltest_numcpus_bound.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.linux</platformRequirements>
+		<platform>.*linux.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -250,7 +250,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-config $(Q)$(TEST_RESROOT)$(D)pltest_numcpus_bound.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.win</platformRequirements>
+		<platform>.*windows.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -283,7 +283,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-config $(Q)$(TEST_RESROOT)$(D)pltest_numcpus_bound.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.aix</platformRequirements>
+		<platform>.*aix.*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>
@@ -378,7 +378,7 @@ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-excepti
 	-config $(Q)$(TEST_RESROOT)$(D)pltest.xml$(Q) -verbose -explainExcludes \
 	-xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	$(TEST_STATUS)</command>
-		<platformRequirements>os.linux</platformRequirements>
+		<platform>.*linux.*$</platform>
 		<levels>
 			<level>extended</level>
 		</levels>

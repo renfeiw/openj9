@@ -40,7 +40,7 @@
 	-config $(Q)$(TEST_RESROOT)$(D)sigxfszHandlingTest.xml$(Q) \
 	-plats all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError  ; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

@@ -55,7 +55,7 @@
 		-DEXE=$(SQ)$(JAVA_COMMAND) $(JVM_OPTIONS)$(SQ) -Xint -jar $(CMDLINETESTER_JAR) -config $(Q)$(TEST_RESROOT)$(D)gcRegressionTests.xml$(Q) \
 		-verbose -explainExcludes -xids all,$(PLATFORM),$(VARIATION) -plats all,$(PLATFORM),$(VARIATION) -xlist $(Q)$(TEST_RESROOT)$(D)gcRegressionTests_excludes.xml$(Q) -nonZeroExitWhenError; \
 		$(TEST_STATUS)</command>
-		<platformRequirements>arch.riscv</platformRequirements>
+		<platform>.*riscv.*</platform>
 		<levels>
 			<level>sanity</level>
 		</levels>

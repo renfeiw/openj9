@@ -33,7 +33,7 @@
 	-DEXE=$(SQ)bash $(TEST_RESROOT)$(D)run_all_locales.sh $(JAVA_COMMAND) $(JVM_OPTIONS) -Xdump$(SQ) -Xint -jar $(CMDLINETESTER_JAR) \
 	-config $(Q)$(TEST_RESROOT)$(D)locales.xml$(Q) -explainExcludes -xids all,$(PLATFORM),$(VARIATION) -nonZeroExitWhenError; \
 	${TEST_STATUS}</command>
-		<platformRequirements>^os.win</platformRequirements>
+		<platform>^((?!windows).)*$</platform>
 		<levels>
 			<level>extended</level>
 		</levels>
