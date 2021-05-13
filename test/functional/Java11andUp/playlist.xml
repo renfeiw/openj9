@@ -23,6 +23,10 @@
 <playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../TKG/playlist.xsd">
 	<test>
 		<testCaseName>String_CompactStrings</testCaseName>
+		<disabled>
+			<comment>abcdeg</comment>
+			<platform>.*windows.*</platform>
+		</disabled>
 		<variations>
 			<variation>-XX:+CompactStrings</variation>
 		</variations>
